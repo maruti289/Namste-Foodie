@@ -1,0 +1,59 @@
+.HeaderItems
+{
+    display: flex;
+    justify-content: space-between;
+    /*border: 5px solid black;
+    border-radius: 5px;*/
+
+}
+.logo
+{
+    height: 100px;
+    width: 150px;
+}
+.TagLine{
+    font-size: 25px;
+}
+.NavIcons
+{
+    display: flex;
+    list-style-type: none;
+}
+ul > li{
+    height: 100px;
+    width: 125px;
+}
+
+.UserLogo
+{
+    font-size: 25px;
+}
+.SearchBox
+{
+    height: 150px;
+}
+.MagGlass
+{
+    padding-left: 10px;
+}
+.ResConResCar
+{
+    display: flex;
+    flex-wrap: wrap;
+}
+.ImgCls
+{
+    height: 100px;
+    width: 100px;
+}
+.ResCard
+{
+    padding: 5px;
+}
+.ResCard:hover
+{
+    border: 2px solid black;
+    border-radius: 3px;
+}
+
+
