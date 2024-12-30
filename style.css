@@ -1,59 +1,44 @@
-.HeaderItems
-{
+.HeaderItems{
     display: flex;
     justify-content: space-between;
-    /*border: 5px solid black;
-    border-radius: 5px;*/
-
-}
-.logo
-{
-    height: 100px;
-    width: 150px;
-}
-.TagLine{
-    font-size: 25px;
+    /*border: 2px solid black;*/
+    border-radius: 5px;
 }
 .NavIcons
 {
     display: flex;
     list-style-type: none;
+   
 }
-ul > li{
-    height: 100px;
-    width: 125px;
-}
-
-.UserLogo
-{
+.NavItems > ul > li {
+    padding: 10px;
     font-size: 25px;
 }
-.SearchBox
+.classLogo
 {
-    height: 150px;
+    font-size: 40px;
 }
-.MagGlass
+.logo
 {
-    padding-left: 10px;
+    margin: 5px;
 }
-.ResConResCar
+.Res-Container
 {
+    margin: 5px;
     display: flex;
     flex-wrap: wrap;
 }
-.ImgCls
+.img-class
 {
-    height: 100px;
-    width: 100px;
+    width: 100%;
 }
-.ResCard
+.res-card
 {
-    padding: 5px;
+    padding:  5px;
+    width: 250px;
+    background-color: #f0f0f0f0;
 }
-.ResCard:hover
+.res-card:hover
 {
     border: 2px solid black;
-    border-radius: 3px;
 }
-
-
