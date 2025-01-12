@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "ep_05",
+=======
+  "name": "ep_04",
+>>>>>>> 0579b8ad569ed4dc5dcf0f3c15808eb262e5ce69
   "version": "1.0.0",
   "main": "App.js",
   "scripts": {
@@ -12,6 +16,7 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+<<<<<<< HEAD
     "parcel": "^2.13.3",
     "process": "^0.11.10"
   },
@@ -22,5 +27,16 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.4.0"
+=======
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.7.1",
+    "@fortawesome/free-solid-svg-icons": "^6.7.1",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+>>>>>>> 0579b8ad569ed4dc5dcf0f3c15808eb262e5ce69
   }
 }

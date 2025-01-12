@@ -35,7 +35,10 @@
 .res-card
 {
     padding:  5px;
+<<<<<<< HEAD
     height: auto;
+=======
+>>>>>>> 0579b8ad569ed4dc5dcf0f3c15808eb262e5ce69
     width: 250px;
     background-color: #f0f0f0f0;
 }
@@ -43,6 +46,7 @@
 {
     border: 2px solid black;
 }
+<<<<<<< HEAD
 .btn-class
 {
     height: 25px;
@@ -72,3 +76,5 @@
     height: 50px;
     width: 200px;
 }
+=======
+>>>>>>> 0579b8ad569ed4dc5dcf0f3c15808eb262e5ce69
