@@ -2,7 +2,7 @@ import { useState,useEffect } from "react";
 import { restaurantList } from "../Utilities/MockData";
 import ResCard from "./ResCard";
 import { Shimmer } from "./Shimmer";
-
+import { Link } from "react-router-dom";
 const Body = ()=>
 {
     
@@ -31,9 +31,10 @@ const Body = ()=>
         // Converting response to JSON
         const JsonData =  await LiveData.json()
        
+        
         // Extracting restaurant data from nested JSON structure
         const restaurants = JsonData.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-
+        console.log(restaurants);
         //Sets both allResList and resList to the same initial data
         setAllResList(restaurants); // Set master list
         setResList(restaurants); // Set display list
@@ -64,6 +65,7 @@ const Body = ()=>
                     // 3. Update resList with filtered results
                     const filteredRestaurant = allResList.filter((res)=>res.info.name.toLowerCase().includes(searchText.toLowerCase()));
                     setResList(filteredRestaurant)
+                    setSearchText('');
                     }
                 }>Search</button>
             </div>
@@ -89,11 +91,12 @@ const Body = ()=>
                </button>
             </div>
          </div>
-            <div className='Res-Container'>
-                {/* Map through resList to display restaurant cards */}
-                {resList.map((restaurant) =>( <ResCard resData={restaurant}/>))}
-            </div> 
-        </div>
-    )
-}
+         <div className='Res-Container'>
+                {resList.map((restaurant) => (
+                    <Link to={'/restaurants/' + restaurant.info.id} key={restaurant.info.id}>
+                        <ResCard resData={restaurant} />
+                    </Link>
+                ))}
+            </div>
+    </div>)}
 export default Body;

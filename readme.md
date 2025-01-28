@@ -183,3 +183,123 @@ To add new features:
    - Logical component structure
    - Clear naming conventions
    - Well-documented functions
+
+
+### react-router-dom
+
+   -When using createBrowserRouter, it's essential to follow best practices to ensure maintainable and    scalable routing in your React application:
+
+   Define routes using an array of route objects to keep routing configuration centralized and easily manageable.
+
+   Use the element property to associate components with routes, maintaining a clear separation between routing logic and component structure.
+
+   Implement nested routes to reflect the hierarchical nature of your application's UI.
+   Protect sensitive routes with authentication checks and use the Navigate component for redirection when necessary.
+   
+   Handle routing errors with a catch-all route to improve the user experience.
+   By adhering to these practices, developers can create robust and user-friendly routing in their React applications.
+
+
+### Working Behind the Scene
+
+### Restaurant List Rendering Documentation
+      Component Overview
+
+      The restaurant list section is a crucial part of our application that handles the display and navigation of restaurant cards. It transforms an array of restaurant data into clickable, visual components that users can interact with.
+
+### Code Structure
+
+<div className='Res-Container'>
+    {resList.map((restaurant) => (
+        <Link to={'/restaurants/' + restaurant.info.id} key={restaurant.info.id}>
+            <ResCard resData={restaurant} />
+        </Link>
+    ))}
+</div>
+
+### Flow of Execution
+
+1.Container Initialization
+
+The Res-Container div is created as a wrapper
+Acts as a grid/flex container for restaurant cards
+Manages the layout and spacing of cards
+
+
+2.Data Mapping Process
+
+resList array is accessed from component state
+.map() iterates through each restaurant object
+Creates a new set of elements for each restaurant
+
+3.For Each Restaurant
+
+   Restaurant Data → Link Component → ResCard Component → Visual Card
+
+a. Link Creation
+
+Generates a unique URL using restaurant ID
+Example: /restaurants/123456
+Enables client-side routing
+
+b. Key Assignment
+
+Each Link gets a unique key prop
+Uses restaurant ID for identification
+Helps React efficiently update the DOM
+
+c. Card Generation
+
+Creates a ResCard component
+Passes restaurant data via resData prop
+Renders restaurant information visually
+
+4.User Interaction Flow
+
+   User Click → URL Update → Route Change → New Page Load
+
+   User clicks a restaurant card
+   React Router updates the URL
+   Application navigates to restaurant details page
+   All happens without full page refresh
+
+
+### Data Flow Diagram
+
+   resList (State)
+         ↓
+   Map Operation
+         ↓
+   Link Components
+         ↓
+   ResCard Components
+         ↓
+   Visual Output
+
+
+### Key Features
+
+Dynamic Routing: Automatically generates URLs based on restaurant IDs
+Efficient Rendering: Uses React's key prop for optimal performance
+Component Reusability: Separates card rendering into its own component
+Seamless Navigation: Provides smooth transitions between views
+
+
+### Dependencies
+
+React Router DOM for navigation (Link component)
+Custom ResCard component for rendering
+State management from parent component
+
+### Common Use Cases
+
+Displaying filtered restaurant results
+Showing search results
+Rendering category-specific restaurants
+Managing dynamic restaurant lists
+
+### Performance Considerations
+
+Uses unique keys for optimal rendering
+Implements client-side routing for faster navigation
+Efficiently handles large lists through virtual rendering

@@ -1,42 +1,54 @@
 {
-<<<<<<< HEAD
+
   "name": "ep_05",
-=======
-  "name": "ep_04",
->>>>>>> 0579b8ad569ed4dc5dcf0f3c15808eb262e5ce69
+
   "version": "1.0.0",
+
   "main": "App.js",
+
   "scripts": {
+
     "test": "echo \"Error: no test specified\" && exit 1",
+
     "start": "parcel index.html",
+
     "build": "parcel build index.html"
+
   },
+
   "keywords": [],
+
   "author": "",
+
   "license": "ISC",
+
   "description": "",
+
   "devDependencies": {
-<<<<<<< HEAD
+
     "parcel": "^2.13.3",
+
     "process": "^0.11.10"
+
   },
+
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.7.2",
-    "@fortawesome/free-solid-svg-icons": "^6.7.2",
-    "@fortawesome/react-fontawesome": "^0.2.2",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-icons": "^5.4.0"
-=======
-    "parcel": "^2.12.0",
-    "process": "^0.11.10"
-  },
-  "dependencies": {
+
     "@fortawesome/fontawesome-svg-core": "^6.7.1",
+
     "@fortawesome/free-solid-svg-icons": "^6.7.1",
+
     "@fortawesome/react-fontawesome": "^0.2.2",
+
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
->>>>>>> 0579b8ad569ed4dc5dcf0f3c15808eb262e5ce69
+
+    "react-dom": "^18.3.1",
+
+    "react-router": "^7.1.2",
+
+    "react-router-dom": "^7.1.2"
+
   }
+
 }
+

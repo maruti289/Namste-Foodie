@@ -3,6 +3,7 @@ import { faBellConcierge } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { faUserLarge } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 import { useState,useEffect } from 'react';
 
 const HeaderComponent = () =>
@@ -18,6 +19,16 @@ const HeaderComponent = () =>
 
         const [btnNameReact,setBtnNameReact] = useState('Login')
 
+        //console.log('HeaderComponent rendered')
+
+        //1. If there is no dependencies array  present then the userEffect() will  call everytime
+        //2. If the dependencies array is [] is empty the useEffect will call once
+        //3. if the dependencies is use any local variable then it will call whenever it will update
+
+        useEffect(()=>{
+            console.log('useEffect called with empty dependenacy array')
+        },[])
+
         return(
             <div className='HeaderItems'>
                 <div className='classLogo'>
@@ -28,10 +39,14 @@ const HeaderComponent = () =>
                 </div>
                  <div className='NavItems'>
                    <ul className='NavIcons'>
-                        <li className='Home'> Home</li>
-                        <li className='About Us'>About Us</li>
-                        <li className='Service'>Service</li>
-                        <li className='Find Us'>Find Us</li>                        
+                        <li className='Home'>
+                            <Link to='/Body'> Home</Link>
+                        </li>
+                        <li className='About Us'> 
+                            <Link to='/About'>About Us</Link>
+                        </li>
+                        <li className='Service'><Link to='/Service'>Service</Link></li>
+                        <li className='Find Us'><Link to='/Contact'>Find Us</Link></li>                        
                     </ul>                  
                 </div>
                
