@@ -303,3 +303,44 @@ Managing dynamic restaurant lists
 Uses unique keys for optimal rendering
 Implements client-side routing for faster navigation
 Efficiently handles large lists through virtual rendering
+
+
+### Class Based componet Life Cycle
+
+As soon as the componet is renderd or mounted the instance is creted and constructor is called after the constructor render() is called and if React found any child component in the parent component then it loads the child componet it follows same cycle child constructor is called and child render is called
+
+Parent Constructor -> Parent Render -> Child Constructor -> Child Render
+
+Then comes into the picture the superpower of react componentDidMount() method 
+
+Why we use the componentDidMount() in class based componet
+
+because to do API call in the class based component
+
+### Why we use componentDidMount() to do the API call inside the CBC
+Because it allows rendering the information as soon as possible.
+First, React will render the component with whatever data it has. After that, the API call will fetch the data and update the component.
+
+### Updated Life Cycle
+
+Parent Constructor -> Parent Render -> Child Constructor -> Child Render -> componentDidMount(Child) ->componentDidMount(Parent)
+
+### What if we have multiple children in the parent class, how will it work?
+
+As soon as the component renders, the Parent constructor will render and move to the Parent render(). 
+When it comes to the first Child class, it will start to render the Child constructor and after that the Child render. Next, it will not execute the componentDidMount() function immediately. It will batch all child class components and complete their constructors and renders. After that, componentDidMount() will execute. This is known as the render phase.
+
+After the execution of all Child constructors and renders, React will start the commit phase. In this phase, it will start to execute the componentDidMount() functions. This phase is known as the commit phase.
+
+### Two Phase
+
+React's rendering process can be divided into two main phases: the render phase and the commit phase.
+
+1. **Render Phase**: During the render phase, React constructs the virtual DOM by batching the execution of all child component constructors and their render methods. This phase is purely computational and does not involve any direct manipulation of the actual DOM. It allows React to efficiently determine the minimal set of changes needed to update the UI.
+
+2. **Commit Phase**: In the commit phase, React applies the changes calculated during the render phase to the actual DOM. This involves batching and executing lifecycle methods like `componentDidMount()`, `componentDidUpdate()`, and `componentWillUnmount()`. The commit phase ensures that the UI is updated in a performant manner, reflecting the latest state and props of the components.
+
+
+
+
+
