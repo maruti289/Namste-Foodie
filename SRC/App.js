@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBellConcierge } from '@fortawesome/free-solid-svg-icons';
@@ -7,10 +7,11 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { faUserLarge } from '@fortawesome/free-solid-svg-icons';
 import HeaderComponent from './Components/HeaderComponent';
 import Body from './Components/Body';
-import About from './Components/About';
+//import About from './Components/About';
 import Error from './Components/Error';
 import Contact from './Components/Contact';
 import Service from './Components/Service';
+//import Grocery from './Components/Grocery';
 import RestaurantMenu from './Components/RestaurantMenu';
 //we are importing the createBrowserRouter as Router, RouterProvider as Routes ,Outlet as Route from react-router-dom
 //Function of createBrowserRouter is to create a BrowserRouter
@@ -18,6 +19,11 @@ import RestaurantMenu from './Components/RestaurantMenu';
 //Function of Outlet is to render the routes
 import {createBrowserRouter , RouterProvider  ,Outlet} from 'react-router-dom';
 export * from "react-router-dom";
+
+//Lazy loading of components
+const Grocery =lazy(()=>import('./Components/Grocery'));
+const About=lazy(()=>import('./Components/About'));
+
 
 const MainLayOut = () =>
 {
@@ -47,11 +53,15 @@ const appRouter = createBrowserRouter([
             },
             {
                 path: 'about', // Relative path (resolves to /Body/about)
-                element: <About />
+                element: <Suspense fallback={'Loading'}><About /></Suspense>
             },
             {
                 path: 'contact', // Relative path (resolves to /Body/contact)
                 element: <Contact />
+            },
+            {
+                path: 'Grocery', // Relative path (resolves to /Body/contact)
+                element: <Suspense fallback={'Loading..!'}><Grocery /></Suspense>
             },
             {
                 path:'service',

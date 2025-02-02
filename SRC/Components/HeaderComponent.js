@@ -5,6 +5,9 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { faUserLarge } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { useState,useEffect } from 'react';
+import { useOnlineStatus } from '../Utilities/useOnlineStatus'; 
+import { Shimmer } from './Shimmer';
+import Grocery from './Grocery';
 
 const HeaderComponent = () =>
     {
@@ -25,11 +28,9 @@ const HeaderComponent = () =>
         //2. If the dependencies array is [] is empty the useEffect will call once
         //3. if the dependencies is use any local variable then it will call whenever it will update
 
-        useEffect(()=>{
-            console.log('useEffect called with empty dependenacy array')
-        },[])
+       const onlineStatus = useOnlineStatus();
 
-        return(
+        return  (
             <div className='HeaderItems'>
                 <div className='classLogo'>
                     <FontAwesomeIcon className='logo' icon={faBellConcierge} />
@@ -39,6 +40,7 @@ const HeaderComponent = () =>
                 </div>
                  <div className='NavItems'>
                    <ul className='NavIcons'>
+                        <li>Online Status {onlineStatus ? "✅" : "❎"}</li>
                         <li className='Home'>
                             <Link to='/Body'> Home</Link>
                         </li>
@@ -46,7 +48,8 @@ const HeaderComponent = () =>
                             <Link to='/About'>About Us</Link>
                         </li>
                         <li className='Service'><Link to='/Service'>Service</Link></li>
-                        <li className='Find Us'><Link to='/Contact'>Find Us</Link></li>                        
+                        <li className='Find Us'><Link to='/Contact'>Find Us</Link></li>    
+                        <li className='Grocery'><Link to='/Grocery'>Grocery</Link></li>                     
                     </ul>                  
                 </div>
                
@@ -61,6 +64,6 @@ const HeaderComponent = () =>
                     }}>{btnNameReact}</button>
                 </div>
             </div>   
-        );
+        )  ;
     }
 export default HeaderComponent;

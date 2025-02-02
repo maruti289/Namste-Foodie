@@ -1,8 +1,10 @@
-import { useState,useEffect } from "react";
+import { useState,useEffect, use } from "react";
 import { restaurantList } from "../Utilities/MockData";
 import ResCard from "./ResCard";
 import { Shimmer } from "./Shimmer";
 import { Link } from "react-router-dom";
+import { useOnlineStatus } from "../Utilities/useOnlineStatus";
+import Offline from "./Offline";
 const Body = ()=>
 {
     
@@ -17,7 +19,6 @@ const Body = ()=>
     // searchText: Holds the current value of search input field
     const[searchText,setSearchText]=useState('');
    
-
      // useEffect runs when component mounts ([] means it runs only once)
     useEffect(()=>{
         fetchData()
@@ -41,12 +42,14 @@ const Body = ()=>
 
     }
     // Show loading shimmer if we don't have restaurant data yet
-    if(resList.length===0)
+    const onlineStatus = useOnlineStatus();
+
+    if(resList.length===0 )
     {
         return <Shimmer/>
     }
-
-    return  (
+    
+    return onlineStatus ? (
         <div className='BodyComponent'>
          <div className="filter-search-component">
             <div className="SearchComponent">
@@ -98,5 +101,6 @@ const Body = ()=>
                     </Link>
                 ))}
             </div>
-    </div>)}
+    </div>): <Offline/>;    
+}
 export default Body;
