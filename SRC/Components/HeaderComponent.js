@@ -31,29 +31,35 @@ const HeaderComponent = () =>
        const onlineStatus = useOnlineStatus();
 
         return  (
-            <div className='HeaderItems'>
+            <div className='flex justify-between bg-pink-200 '>
                 <div className='classLogo'>
-                    <FontAwesomeIcon className='logo' icon={faBellConcierge} />
-                    <div className='Tagline' style={{fontSize:'25px', margin:'5px'}}>
+                    <FontAwesomeIcon className='text-7xl m-2 p-1' icon={faBellConcierge} />
+                    <div className='font-bold' style={{fontSize:'25px', margin:'5px'}}>
                             <h4>Namste Foodie</h4>
                     </div>
                 </div>
                  <div className='NavItems'>
-                   <ul className='NavIcons'>
-                        <li>Online Status {onlineStatus ? "✅" : "❎"}</li>
-                        <li className='Home'>
+                   <ul className='flex m-4 p-3'>
+                        <li className='p-3 font-bold'>Online Status {onlineStatus ? "✅" : "❎"}</li>
+                        <li className='p-3 font-bold'>
                             <Link to='/Body'> Home</Link>
                         </li>
-                        <li className='About Us'> 
+                        <li className='p-3 font-bold'> 
                             <Link to='/About'>About Us</Link>
                         </li>
-                        <li className='Service'><Link to='/Service'>Service</Link></li>
-                        <li className='Find Us'><Link to='/Contact'>Find Us</Link></li>    
-                        <li className='Grocery'><Link to='/Grocery'>Grocery</Link></li>                     
+                        <li className='p-3 font-bold'>
+                            <Link to='/Service'>Service</Link>
+                            </li>
+                        <li className='p-3 font-bold'>
+                            <Link to='/Contact'>Find Us</Link>
+                            </li>    
+                        <li className='p-3 font-bold'>
+                            <Link to='/Grocery'>Grocery</Link>
+                            </li>                     
                     </ul>                  
                 </div>
                
-                <div className='UserLogo' style={{margin:'5px'}}>
+                <div className='m-5 p-6 font-bold ' style={{margin:'5px'}}>
                     <button className='btn-class' onClick={()=>{
                         // Check if the current value of btnNameReact is "Login".
                         // If true, update it to "Logout" using the setBtnNameReact function.

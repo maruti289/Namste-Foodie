@@ -35,7 +35,7 @@ const Body = ()=>
         
         // Extracting restaurant data from nested JSON structure
         const restaurants = JsonData.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-        console.log(restaurants);
+        console.log(restaurants)
         //Sets both allResList and resList to the same initial data
         setAllResList(restaurants); // Set master list
         setResList(restaurants); // Set display list
@@ -51,9 +51,10 @@ const Body = ()=>
     
     return onlineStatus ? (
         <div className='BodyComponent'>
-         <div className="filter-search-component">
+         <div className="flex justify-between">
             <div className="SearchComponent">
-                <input 
+                <input
+                    className="p-1 m-1 border-2 rounded-lg" 
                     type="text" 
                     value={searchText} 
                     onChange={(e)=>{
@@ -70,10 +71,10 @@ const Body = ()=>
                     setResList(filteredRestaurant)
                     setSearchText('');
                     }
-                }>Search</button>
+                } className="font-bold px-5 bg-gray-200 border-3 rounded-2xl m-1">Search</button>
             </div>
             <div>
-                <button className="rst-btn" onClick={()=>{
+                <button className="font-bold px-5 bg-gray-200 border-3 rounded-2xl" onClick={()=>{
                     // Reset Logic:
                     // 1. Restore resList to original data
                     // 2. Clear search input
@@ -82,7 +83,7 @@ const Body = ()=>
                 }}>Reset</button>
             </div>
             <div className='FilterComponent'>
-               <button className="fltr-btn" onClick={()=>{
+               <button className="font-bold px-5 bg-gray-200 border-3 rounded-2xl" onClick={()=>{
                     // Filter Logic:
                     // 1. Filter restaurants with rating > 4.5
                     // 2. Update resList with filtered results
@@ -94,7 +95,7 @@ const Body = ()=>
                </button>
             </div>
          </div>
-         <div className='Res-Container'>
+         <div className='flex flex-wrap'>
                 {resList.map((restaurant) => (
                     <Link to={'/restaurants/' + restaurant.info.id} key={restaurant.info.id}>
                         <ResCard resData={restaurant} />
