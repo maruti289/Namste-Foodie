@@ -1,6 +1,6 @@
 import { useState,useEffect, use } from "react";
 import { restaurantList } from "../Utilities/MockData";
-import ResCard from "./ResCard";
+import ResCard,{withLabelPromoted} from "./ResCard";
 import { Shimmer } from "./Shimmer";
 import { Link } from "react-router-dom";
 import { useOnlineStatus } from "../Utilities/useOnlineStatus";
@@ -12,6 +12,7 @@ const Body = ()=>
     // This list never changes after initial load - serves as source of truth
     const [allResList, setAllResList]=useState([]); 
     
+    
     // resList: List that's displayed on the UI
     // This list changes when we apply filters or search
     let [resList,setResList ] = useState([]); 
@@ -19,6 +20,8 @@ const Body = ()=>
     // searchText: Holds the current value of search input field
     const[searchText,setSearchText]=useState('');
    
+    const ResCardWithLabel = withLabelPromoted(ResCard);
+
      // useEffect runs when component mounts ([] means it runs only once)
     useEffect(()=>{
         fetchData()
@@ -35,7 +38,7 @@ const Body = ()=>
         
         // Extracting restaurant data from nested JSON structure
         const restaurants = JsonData.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-        console.log(restaurants)
+        
         //Sets both allResList and resList to the same initial data
         setAllResList(restaurants); // Set master list
         setResList(restaurants); // Set display list
@@ -98,7 +101,9 @@ const Body = ()=>
          <div className='flex flex-wrap'>
                 {resList.map((restaurant) => (
                     <Link to={'/restaurants/' + restaurant.info.id} key={restaurant.info.id}>
-                        <ResCard resData={restaurant} />
+                       {
+                            restaurant.info.isOpen ? <ResCardWithLabel resData={restaurant}/> : <ResCard resData={restaurant} />
+                       } 
                     </Link>
                 ))}
             </div>

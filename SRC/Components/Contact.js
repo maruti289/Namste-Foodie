@@ -5,16 +5,16 @@ class Contact extends React.Component{
     constructor(props){
         super(props)
 
-        console.log('Parent Constructor is called')
+        
     }
 
    componentDidMount(){
-    console.log('Parent componentDidMount is called')
+   
    }
 
 
     render(){
-        console.log('Parent Render is called')
+        
         return(
             <div className="ContactClass">
                 <h1>My Name</h1>

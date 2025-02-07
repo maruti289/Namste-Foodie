@@ -16,4 +16,14 @@ const ResCard = (props)=>
             </div>
         )
     }
+export const withLabelPromoted =(ResCard)=>{
+    return (props) =>{
+        return(
+            <div>
+                <lable className="absolute bg-gray-300 text-black p-2 m-4 rounded-xl max-w-auto">Restaurant is Open</lable>
+                <ResCard {...props}/>
+            </div>
+        )
+    }
+}
 export default ResCard;
